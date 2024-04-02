@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Alert #<%= @the_alert.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/alerts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_alert/<%= @the_alert.id %>">
+          Delete alert
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        External data
+      </dt>
+      <dd>
+        <%= @the_alert.external_data_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_alert.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_alert.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit alert
+    </h2>
+
+    <form action="/modify_alert/<%= @the_alert.id %>"  method="post" >
+      <div>
+        <label for="external_data_id_box">
+          External data
+        </label>
+
+        <input type="text" id="external_data_id_box" name="query_external_data_id" value="<%= @the_alert.external_data_id %>">
+      </div>
+
+      <button>
+        Update alert
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

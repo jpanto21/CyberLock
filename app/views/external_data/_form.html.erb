@@ -1,0 +1,47 @@
+<%= form_with(model: external_datum) do |form| %>
+  <% if external_datum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(external_datum.errors.count, "error") %> prohibited this external_datum from being saved:</h2>
+
+      <ul>
+        <% external_datum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :ext_username, style: "display: block" %>
+    <%= form.text_field :ext_username %>
+  </div>
+
+  <div>
+    <%= form.label :ext_email, style: "display: block" %>
+    <%= form.text_field :ext_email %>
+  </div>
+
+  <div>
+    <%= form.label :organization_id, style: "display: block" %>
+    <%= form.text_field :organization_id %>
+  </div>
+
+  <div>
+    <%= form.label :main_email, style: "display: block" %>
+    <%= form.check_box :main_email %>
+  </div>
+
+  <div>
+    <%= form.label :alerts_count, style: "display: block" %>
+    <%= form.number_field :alerts_count %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

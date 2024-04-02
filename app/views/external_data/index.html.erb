@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>External data</h1>
+
+<div id="external_data">
+  <% @external_data.each do |external_datum| %>
+    <%= render external_datum %>
+    <p>
+      <%= link_to "Show this external datum", external_datum %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New external datum", new_external_datum_path %>
