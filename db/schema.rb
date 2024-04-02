@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_01_212422) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_02_152540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "alerts", force: :cascade do |t|
-    t.bigint "external_data_id", null: false
+    t.bigint "external_datum_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["external_data_id"], name: "index_alerts_on_external_data_id"
+    t.index ["external_datum_id"], name: "index_alerts_on_external_datum_id"
   end
 
   create_table "external_data", force: :cascade do |t|
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_01_212422) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "alerts", "external_data", column: "external_data_id"
+  add_foreign_key "alerts", "external_data"
   add_foreign_key "external_data", "organizations"
   add_foreign_key "external_data", "users"
 end
