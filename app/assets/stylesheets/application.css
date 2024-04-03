@@ -13,5 +13,39 @@
  *= require_tree .
  *= require_self
  */
+/* landing_page.css */
+.soft-edge-container {
+  overflow: hidden; /* Hide overflow to contain the soft edges */
+  border-radius: 1em; /* Adjust the border-radius value as needed */
+}
 
+.soft-edge-image {
+  width: 100%; /* Ensure the image takes up the full width of the container */
+}
+/* Body styles */
+.landing-page {
+  background: #d8d8db;
+  font-family: Arial, sans-serif;
+}
 
+/* Container styles */
+.landing-page .container {
+  margin: auto;
+  padding: 2em;
+  text-align: center;
+  
+}
+
+/* Logo styles */
+
+/* Heading styles */
+.landing-page .heading {
+  font-size: 2em;
+  margin-bottom: 1.5em;
+}
+
+/* Button styles */
+.landing-page .btn {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}

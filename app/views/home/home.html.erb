@@ -1,0 +1,19 @@
+ 
+<div class= "soft-edge-container ">
+<%= image_tag("homelock.jpg", class: "img-fluid soft-edge-image bg-dark", alt: "Logo") %>
+</div>
+<hr>
+<body class="landing-page">
+    <!-- Logo -->
+
+  <div class="container">
+    <!-- Heading -->
+    <h1 class="heading">CYBERLOCK</h1>
+    <!-- Description -->
+    <p> A secure place to store your usernames and emails.</p>
+    <!-- Sign Up Button -->
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary bg-light text-dark" %>
+    <!-- Login Button -->
+    <%= link_to "Login", new_user_session_path, class: "btn btn-secondary" %>
+  </div>
+</body>

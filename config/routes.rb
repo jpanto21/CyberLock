@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Routes for the Alert resource:
-  root "external_data#index"
+  root "home#home"
 
 
   devise_for :users
