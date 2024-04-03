@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # Routes for the Alert resource:
-  root "organizations#index"
+  root "external_data#index"
+
 
   devise_for :users
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   resource :alerts
 
 
+  get "/:username" => "users#show", as: :user
 
   # # CREATE
   # post("/insert_alert", { :controller => "alerts", :action => "create" })

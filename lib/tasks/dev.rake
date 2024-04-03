@@ -39,7 +39,7 @@ task({ :sample_data => :environment }) do
       external_datum = ExternalDatum.create!(
         user_id: user.id,
         organization_id: organization.id,
-        ext_username: unique_usernames[user_index],
+        ext_username: Faker::Internet.unique.username,
         ext_email: Faker::Internet.unique.email,
         main_email: [true, false].sample
       )
