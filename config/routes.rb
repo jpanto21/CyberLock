@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :organizations
   resources :external_data
-  resource :alerts
+  resources :alerts 
 
 
   get "/:username" => "users#show", as: :user
