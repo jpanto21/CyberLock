@@ -10,7 +10,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  username               :citext
+#  username               :citext           not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -26,5 +26,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :external_datum, dependent: :destroy
+  has_many :external_data, dependent: :destroy
+  has_many :organizations, through: :external_data
+
+  validates :username, presence: true
 end

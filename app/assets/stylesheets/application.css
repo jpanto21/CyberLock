@@ -1,51 +1,70 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-/* landing_page.css */
-.soft-edge-container {
-  overflow: hidden; /* Hide overflow to contain the soft edges */
-  border-radius: 1em; /* Adjust the border-radius value as needed */
-}
-
-.soft-edge-image {
-  width: 100%; /* Ensure the image takes up the full width of the container */
-}
 /* Body styles */
 .landing-page {
   background: #d8d8db;
   font-family: Arial, sans-serif;
 }
 
-/* Container styles */
-.landing-page .container {
-  margin: auto;
-  padding: 2em;
-  text-align: center;
-  
+/* Background Image */
+.position-relative img {
+  width: 100%;
 }
 
-/* Logo styles */
+/* Overlay with Text and Buttons */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+}
 
 /* Heading styles */
-.landing-page .heading {
-  font-size: 2em;
-  margin-bottom: 1.5em;
+.heading {
+  font-size: 3vw;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: bold; /* Make the font bold */
+  font-family: 'Arial Black', sans-serif; /* Specify a font family */
+}
+
+/* Description styles */
+.overlay h3 {
+  font-size: 1.5vw;
+  font-family: 'Arial', sans-serif; /* Specify a font family */
 }
 
 /* Button styles */
-.landing-page .btn {
-  font-size: 1.2em;
-  margin-bottom: 1em;
+.overlay .btn {
+  font-size: 1.2vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  font-weight: bold; /* Make the font bold */
+  font-family: 'Arial', sans-serif; /* Specify a font family */
+}
+
+
+/* Positioning styles */
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.start-0 {
+  left: 0;
+}
+
+.text-white {
+  color: white;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }

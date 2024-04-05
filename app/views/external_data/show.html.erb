@@ -3,8 +3,13 @@
 <%= render @external_datum %>
 
 <div>
-  <%= link_to "Edit this external datum", edit_external_datum_path(@external_datum) %> |
-  <%= link_to "Back to external data", external_data_path %>
-
-  <%= button_to "Destroy this external datum", @external_datum, method: :delete %>
+ <div class="btn btn-dark">
+  <%= link_to "Edit this external datum", edit_external_datum_path(@external_datum) %> 
+  </div>
+<div class="btn btn-dark">
+  <%= link_to "My Emails", user_path(current_user.username), class: "nav-link" %>
+  </div>
+  <div class="btn btn-dark">
+  <%= button_to "Delete this Login", @external_datum, method: :delete %>
+  </div>
 </div>

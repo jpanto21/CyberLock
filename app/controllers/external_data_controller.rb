@@ -3,7 +3,7 @@ class ExternalDataController < ApplicationController
 
   # GET /external_data or /external_data.json
   def index
-    @external_data = ExternalDatum.all
+    @external_data = ExternalDatum.where(user_id: params[:user_id])
   end
 
   # GET /external_data/1 or /external_data/1.json
@@ -22,6 +22,7 @@ class ExternalDataController < ApplicationController
   # POST /external_data or /external_data.json
   def create
     @external_datum = ExternalDatum.new(external_datum_params)
+    @external_datum.user_id = current_user.id
 
     respond_to do |format|
       if @external_datum.save
