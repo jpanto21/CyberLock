@@ -12,13 +12,8 @@
   <% end %>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
     <%= form.label :ext_username, style: "display: block" %>
-    <%= form.text_field :ext_username %>
+    <%= form.text_field :ext_username, required: true, input_html: { autocomplete: "username" } %>
   </div>
 
   <div>
@@ -28,20 +23,18 @@
 
   <div>
     <%= form.label :organization_id, style: "display: block" %>
-    <%= form.text_field :organization_id %>
+    <%= form.collection_select :organization_id, Organization.all, :id, :name %>
   </div>
 
-  <div>
+  <div style="display: none;">
     <%= form.label :main_email, style: "display: block" %>
     <%= form.check_box :main_email %>
   </div>
 
-  <div>
-    <%= form.label :alerts_count, style: "display: block" %>
-    <%= form.number_field :alerts_count %>
-  </div>
+<%= form.hidden_field :main_email, value: false %>
+  <%= form.hidden_field :alerts_count, value: 0 %>
 
-  <div>
+  <div class = mt-3>
     <%= form.submit %>
   </div>
 <% end %>

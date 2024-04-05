@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_02_152540) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_04_193312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_02_152540) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.citext "username"
+    t.citext "username", null: false
     t.citext "name"
     t.integer "external_data_count", default: 0
     t.datetime "created_at", null: false

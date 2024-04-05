@@ -1,0 +1,126 @@
+<div class="container mt-5">
+  <h1>
+    <%= @user.name %><br>
+    CyberLock username: <%= @user.username %>
+  </h1>
+
+  <hr>
+
+  <div class="accordion" id="accordionExample">
+
+    <!-- Emails Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button bg-dark text-light position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Emails
+          <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" class="position-absolute end-0 top-50 translate-middle-y" style="width: 20px; height: 20px;">
+        </button>
+      </h2>
+
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <!-- Add new Email Button -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading">
+              <button class="accordion-button collapsed btn" data-bs-toggle="collapse" data-bs-target="#addEmailForm">
+                <span class="fas fa-plus me-1"></span>
+                Add new Login
+              </button>
+            </h2>
+
+            <!-- Add new Email Form -->
+            <div id="addEmailForm" class="collapse">
+              <%= link_to "Add new Email", new_external_datum_path, class: "btn btn-dark m-3" %>
+            </div>
+          </div>
+
+          <!-- List of Emails -->
+       <% @user.external_data.each_with_index do |external_data, index| %>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-heading<%= index + 1 %>">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%= index + 1 %>" aria-expanded="false" aria-controls="flush-collapse<%= index + 1 %>">
+        <%= external_data.ext_email %>
+      </button>
+    </h2>
+
+    <!-- Email Details -->
+    <div id="flush-collapse<%= index + 1 %>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%= index + 1 %>" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div>Username: <%= external_data.ext_username %></div>
+        <div>Company: <%= external_data.organization.name %></div>
+        <!-- Edit Email Button -->
+        <%= link_to "Edit Email", edit_external_datum_path(external_data), class: "btn btn-dark mt-3" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Organizations Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Organizations 
+          <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" id="accordionIcon" class="position-absolute end-0 top-50 translate-middle-y" style="width: 20px; height: 20px;">
+        </button>
+      </h2>
+
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <!-- List of Organizations -->
+          <div class="accordion accordion-flush" id="accordionOrganizations">
+            <% @user.organizations.each_with_index do |organization, index| %>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading-org<%= index + 1 %>">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-org<%= index + 1 %>" aria-expanded="false" aria-controls="flush-collapse-org<%= index + 1 %>">
+                    <%= organization.name %>
+                  </button>
+                </h2>
+
+                <!-- Organization Details -->
+                <div id="flush-collapse-org<%= index + 1 %>" class="accordion-collapse collapse" aria-labelledby="flush-heading-org<%= index + 1 %>" data-bs-parent="#accordionOrganizations">
+                  <div class="accordion-body">
+                    <!-- List of Usernames and Emails for this Organization -->
+                    <% organization.external_data.each do |external_datum| %>
+                      <div>Email: <%= external_datum.ext_email %></div>
+                      <div>Username: <%= external_datum.ext_username %></div>
+                    <% end %>
+                    <!-- View Organization Link -->
+                    <%= link_to "View Organization", organization_path(organization), class: "btn btn-dark mt-3" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Checker Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Email Checker
+          <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" id="accordionIcon" class="position-absolute end-0 top-50 translate-middle-y" style="width: 20px; height: 20px;">
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <!-- Email Checker Form -->
+          <%#= form_with(url: check_email_path, method: :get, remote: true, id: "emailCheckForm") do |form| %>
+<!--            <div class="mb-3">-->
+              <%#= form.label :email, class: "form-label" %>
+              <%#= form.email_field :email, class: "form-control", id: "emailInput", placeholder: "Enter email" %>
+<!--            </div>-->
+            <%#= form.submit "Check Email", class: "btn btn-primary" %>
+          <%# end %>
+          <!-- Email Checker Result -->
+          <div id="emailResult"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,10 +1,10 @@
-<h1>Editing external datum</h1>
+<h1>Edit Login Info</h1>
 
 <%= render "form", external_datum: @external_datum %>
 
 <br>
-
+<hr>
 <div>
   <%= link_to "Show this external datum", @external_datum %> |
-  <%= link_to "Back to external data", external_data_path %>
+  <%= link_to "My Emails", user_path(current_user.username), class: "nav-link" %>
 </div>

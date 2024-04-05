@@ -1,0 +1,23 @@
+
+
+<body class="landing-page">
+  <!-- Background Image -->
+  <div class="position-relative">
+    <%= image_tag("homelock.jpg", class: "img-fluid", alt: "Background Image") %>
+    <!-- Overlay with Text and Buttons -->
+    <div class="overlay position-absolute bottom-0 start-0 p-4">
+      <!-- Heading -->
+      <h1 class="heading text-white mb-4">CyberLock</h1>
+      <!-- Description -->
+      <h3 class="text-white mb-4">A secure place to store <br> your usernames and emails.</h3>
+      <!-- Sign Up Button -->
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark me-2" %>
+      <!-- Login Button -->
+      <%= link_to "Login", new_user_session_path, class: "btn btn-secondary" %>
+    </div>
+    
+  </div>
+   <div >
+    <%= image_tag("seclog.jpg", class: "img-fluid", alt: "Logo") %>
+  </div>
+</body>
