@@ -85,6 +85,4 @@ test:
 #
 production:
   <<: *default
-  database: cyberlock_production
-  username: cyberlock
-  password: <%= ENV["CYBERLOCK_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
