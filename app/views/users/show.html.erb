@@ -115,23 +115,22 @@
         </div>
       </div>
     <% end %>
-
-    <!-- Email Checker Section -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Email Checker 
-          <span class="order-1">
-            <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
-          </span>
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <!-- Email Checker Form -->
-          <!-- Form content here -->
-          <!-- Email Checker Result -->
-          <div id="emailResult"></div>
+<!-- Email Checker Section -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingThree">
+    <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      Email Checker
+      <span class="order-1">
+        <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
+      </span>
+    </button>
+  </h2>
+  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+     <div class="accordion-body text-dark">
+          <%= form_with url: check_breaches_path, method: :get, local: true, class: "d-flex align-items-center" do |form| %>
+            <%= form.email_field :email, required: true, class: "form-control me-2", placeholder: "Enter your email to check for breaches:" %>
+            <%= form.submit "Check", class: "btn btn-dark text-warning", style: "color: #343a40;" %>
+          <% end %>
         </div>
       </div>
     </div>

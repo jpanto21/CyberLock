@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   resources :organizations
   resources :external_data
   resources :alerts 
-
+  
+  get 'check_breaches', to: 'api#check_breaches'
 
 
   get "/:username" => "users#show", as: :user
-
-
+ 
+  
 end

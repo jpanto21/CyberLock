@@ -4,6 +4,10 @@
   font-family: Arial, sans-serif;
 }
 
+.breachesbg {
+  background: #3f3f42;
+}
+
 /* Background Image */
 .position-relative img {
   width: 100%;
