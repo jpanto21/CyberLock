@@ -29,4 +29,8 @@ class ExternalDatum < ApplicationRecord
   belongs_to :organization, counter_cache: true
 
   has_many :alerts, dependent: :destroy
+
+  scope :grouped_by_email, -> { group(:ext_email, :id) }
+
+
 end
