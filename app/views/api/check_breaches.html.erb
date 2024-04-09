@@ -1,0 +1,38 @@
+<!-- app/views/api/check_breaches.html.erb -->
+
+<div class="breachesbg py-5">
+  <div class="container">
+    <% if @breaches.present? %>
+      <h2 class="mb-4 text-light">Breaches Found:</h2>
+      <div class="row">
+        <% @breaches.each do |breach| %>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <% if breach["LogoPath"].present? %>
+                <div class= "bg-dark d-flex justify-content-center align-items-center">
+                  <img src="<%= breach["LogoPath"] %>"  alt="<%= breach["Name"] %> icon" style="width: 4em; height: 5em;">
+                <% end %>
+                <hr>
+                </div>
+                <h4 class="card-title text-dark"><%= breach["Title"] %></h4>
+                <p class="card-text"><%= breach["Description"].html_safe %></p>
+                <ul class="list-unstyled mt-3">
+                  <li><strong>Domain:</strong> <%= breach["Domain"] %></li>
+                  <li><strong>Breach Date:</strong> <%= breach["BreachDate"] %></li>
+                  <li><strong>Pwn Count:</strong> <%= number_with_delimiter(breach["PwnCount"]) %></li>
+                  <li><strong>Data Classes:</strong> <%= breach["DataClasses"].join(", ") %></li>
+                </ul>
+              </div>
+              <div class="card-footer text-muted">
+                Verified: <%= breach["IsVerified"] ? 'Yes' : 'No' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-white">Your email has not been found in any breaches.</p>
+    <% end %>
+  </div>
+</div>

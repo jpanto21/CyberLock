@@ -156,6 +156,9 @@ GEM
       oj (~> 3.13.12)
       rake (~> 13)
     hashdiff (1.0.1)
+    hibp-client (0.2.1)
+      faraday (>= 0.17.3)
+      oj (>= 3.6.13)
     htmlbeautifier (1.4.2)
     http (5.1.1)
       addressable (~> 2.8)
@@ -418,6 +421,7 @@ DEPENDENCIES
   draft_matchers
   faker
   grade_runner
+  hibp-client
   htmlbeautifier
   http
   importmap-rails
