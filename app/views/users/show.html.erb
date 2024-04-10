@@ -1,16 +1,21 @@
-<div class="container mt-5">
-  <h1>
-    <%= @user.name %><br>
-    CyberLock username: <%= @user.username %>
-  </h1>
+<div class="container mt-4">
+  <div class="card bg-dark bg-opacity-10 m-3">
+    <div class="card-body">
+      <h1 class="text-dark">
+        <%= @user.name %><br>
+        <small class="text-muted">CyberLock username: <%= @user.username %></small>
+      </h1>
+    </div>
+  </div>
+
   <hr>
 
   <div class="accordion" id="accordionExample">
     <!-- Emails Section -->
     <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
+      <h2 class="accordion-header " id="headingOne">
         <button class="accordion-button bg-dark text-light d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <span>Emails</span>
+          <span>Credentials</span>
           <span class="order-1">
             <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
           </span>
@@ -31,18 +36,16 @@
             </h2>
             <!-- Add new Email Form -->
             <div id="addEmailForm" class="collapse">
-              <%= link_to "Add new Email", new_external_datum_path, class: "btn btn-dark m-3 text-warning" %>
+              <%= link_to "Add new Login", new_external_datum_path, class: "btn btn-dark m-3 text-warning" %>
             </div>
           </div>
           <!-- Emails -->
           <% @user.external_data.group_by(&:ext_email).each do |email, data_group| %>
             <div class="accordion-item">
               <h2 class="accordion-header" id="heading<%= email %>">
-                <button class="accordion-button bg-dark text-light d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= email %>" aria-expanded="true" aria-controls="collapse<%= email %>">
+                <button class="accordion-button bg-dark bg-opacity-10 fw-bold text-dark text-bold d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= email %>" aria-expanded="true" aria-controls="collapse<%= email %>">
                   <span>Email: <%= email %></span>
-                  <span class="order-1">
-                    <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
-                  </span>
+               
                 </button>
               </h2>
               <div id="collapse<%= email %>" class="accordion-collapse collapse" aria-labelledby="heading<%= email %>">
@@ -85,11 +88,9 @@
                 <% displayed_organizations << organization.id %>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOrg<%= organization.id %>">
-                    <button class="accordion-button bg-dark text-light d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrg<%= organization.id %>" aria-expanded="false" aria-controls="collapseOrg<%= organization.id %>">
-                      <span>Organization: <%= organization.name %></span>
-                      <span class="order-1">
-                        <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
-                      </span>
+                    <button class="accordion-button bg-dark bg-opacity-10 fw-bold text-dark d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrg<%= organization.id %>" aria-expanded="false" aria-controls="collapseOrg<%= organization.id %>">
+                      <span>- <%= organization.name %></span>
+    
                     </button>
                   </h2>
                   <div id="collapseOrg<%= organization.id %>" class="accordion-collapse collapse" aria-labelledby="headingOrg<%= organization.id %>">
@@ -126,7 +127,7 @@
     </button>
   </h2>
   <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-     <div class="accordion-body text-dark">
+     <div class="accordion-body bg-dark bg-opacity-10 text-dark">
           <%= form_with url: check_breaches_path, method: :get, local: true, class: "d-flex align-items-center" do |form| %>
             <%= form.email_field :email, required: true, class: "form-control me-2", placeholder: "Enter your email to check for breaches:" %>
             <%= form.submit "Check", class: "btn btn-dark text-warning", style: "color: #343a40;" %>
