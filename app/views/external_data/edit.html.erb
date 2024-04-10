@@ -1,10 +1,14 @@
-<h1>Edit Login Info</h1>
+<h1 class="mb-4">Edit Login Info</h1>
 
-<%= render "form", external_datum: @external_datum %>
+<!-- Use Bootstrap's form classes for styling -->
+<div class="container">
+  <%= render "form", external_datum: @external_datum, class: "form-group" %>
+</div>
 
-<br>
-<hr>
-<div>
-  <%= link_to "Show this external datum", @external_datum %> |
-  <%= link_to "My Emails", user_path(current_user.username), class: "nav-link" %>
+<hr class="my-4">
+
+<!-- Navigation links styled with Bootstrap's navbar and button classes for better appearance -->
+<div class="container text-center">
+  <%= link_to "Show this external datum", @external_datum, class: "btn btn-dark text-warning mr-2" %> |
+  <%= link_to "My Emails", user_path(current_user.username), class: "btn btn-secondary ml-2" %>
 </div>

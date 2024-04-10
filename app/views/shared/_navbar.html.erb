@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <!-- Logo and Brand Name -->
     <%= link_to(root_path, class: "navbar-brand") do %>
-      <%= image_tag("navlock.png", alt: "Logo", width: "40", height: "40") %>     
-      <p style="display: inline-block; vertical-align: middle; margin-bottom: 0; margin-left: .5em; font-size: 1.5em;">CyberLock</p>
+      <%= image_tag("navlock.png", alt: "Logo", width: "40", height: "40", class: "ms-3 mb-1") %>     
+      <p style="display: inline-block; vertical-align: middle; margin-bottom: 0; margin-left: 0; font-size: 1.5em;",class="heading">CyberLock</p>
     <% end %>
     <!-- Toggler Button for Offcanvas Navbar -->
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -15,7 +15,7 @@
         <!-- Logo and Brand Name in Offcanvas -->
         <%= link_to(root_path, class: "navbar-brand") do %>
           <%= image_tag("navlock.png", alt: "Logo", width: "40", height: "40") %>
-          <p style="display: inline-block; vertical-align: middle; margin-bottom: 0; margin-left: .5em; font-size: 1.5em;">CyberLock</p>
+          <p style="display: inline-block; vertical-align: middle; margin-bottom: 0; margin-left: .2em; font-size: 1.5em;">CyberLock</p>
         <% end %>
         <!-- Close Button for Offcanvas -->
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
