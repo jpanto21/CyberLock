@@ -1,13 +1,14 @@
 <body class="landing-page">
   <!-- Background Image -->
-  <div class="position-relative">
-    <%= image_tag("homelock.jpg", class: "img-fluid", alt: "Background Image") %>
+  <div class="position-relative ">
+    <%= image_tag("homelock.jpg", alt: "Background Image") %>
     <!-- Overlay with Text and Buttons -->
-    <div class="overlay position-absolute bottom-0 start-0 p-4">
+    <div class="overlay bottom-0 start-0 p-4">
       <!-- Heading -->
       <h1 class="heading text-warning mb-3">Cyber Lock</h1>
       <!-- Description -->
-      <h3 class="text-white mb-4">A secure place to store <br> your usernames and emails.</h3>
+      <h3 class="text-white mb-2">A secure place to store <br> your usernames and emails.</h3>
+      <h3 class="text-white mb-3">Check if your email has <br> been involved in a data breach.</h3>
       <!-- Conditional Buttons -->
       <% if user_signed_in? %> <!-- Check if user is signed in -->
         <!-- Edit Profile Button -->
@@ -19,9 +20,9 @@
       <% else %>
         <!-- Sign Up Button -->
         <div class="d-flex">
-          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark me-2 " %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark me-2 text-warning " %>
           <!-- Login Button -->
-          <%= link_to "Login", new_user_session_path, class: "btn btn-secondary text-warning" %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-secondary text-light" %>
         </div>
       <% end %>
     </div>
