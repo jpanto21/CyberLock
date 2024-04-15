@@ -28,6 +28,7 @@ class User < ApplicationRecord
   
   has_many :external_data, dependent: :destroy
   has_many :organizations, through: :external_data
+  has_many :interactions, dependent: :destroy
 
   validates :username, presence: true
 end

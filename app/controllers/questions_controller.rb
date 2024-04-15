@@ -1,27 +1,38 @@
-# app/controllers/questions_controller.rb
 class QuestionsController < ApplicationController
-  def new
-    # Display the form for asking a question
-  end
+  before_action :authenticate_user!, except: [:new, :ask]
+  before_action :set_interaction, only: [:show]
 
-def show
-  @answer = session[:answer]
-end
+  def new
+    # Displays the form where users can submit a new question
+  end
 
   def ask
     question = params[:question]
-     # Initialize the service and directly call .ask on it to get the answer
-     @answer = OpenAiChatService.new(question).ask
-      puts "JHGBGYBGYBUH" + @answer
-      respond_to do |format|
-        if @answer.presence
-          session[:answer] = @answer
-          format.html { redirect_to show_question_path, notice: "Successfully created." }
-          # format.json { render :show, status: :created, location: @organization }
-        else
-          format.html { redirect_to new_question_path, alert: "Unsuccessfully created." }
-          # format.json { render json: @organization.errors, status: :unprocessable_entity }
-        end
+    answer_content = OpenAiChatService.new(question).ask
+    interaction = current_user.interactions.create(question: question, answer: answer_content)
+    
+    respond_to do |format|
+      if interaction.persisted?
+        format.html { redirect_to show_question_path(interaction), notice: "Question asked successfully." }
+      else
+        format.html { redirect_to new_question_path, alert: "Failed to ask question." }
       end
-  end 
+    end
+  end
+
+  def show
+    # @interaction is set by set_interaction
+    # Assuming you want to display the user associated with the interaction:
+    @user = @interaction.user
+  end
+
+  private
+
+  def set_interaction
+    # This ensures that only interactions belonging to the current user can be accessed
+    @interaction = current_user.interactions.find_by(id: params[:id])
+    if @interaction.nil?
+      redirect_to root_path, alert: "Interaction not found."
+    end
+  end
 end

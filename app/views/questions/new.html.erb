@@ -1,13 +1,9 @@
-<!-- app/views/questions/new.html.erb -->
-<h1>Ask a Question</h1>
-
-<%= form_with url: ask_question_path, method: :post, local: true do |form| %>
-  <div>
-    <%= form.label :question, "Your question:" %>
-    <%= form.text_area :question %>
+<div class="card border-dark mb-4 mt-4" style="border-radius: 1.5rem; margin: 0 auto; max-width: 60vw;">
+  <div class="card-header bg-dark text-warning" style="padding: 1rem; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem;">
+    <h3 class="card-title text-center" style="margin-bottom: 0; font-size: 2rem;">Custos the CyberSecurity Expert</h3>
   </div>
-
-  <div>
-    <%= form.submit "Ask" %>
+  <div class="card-body m-2" style="background-color: white; padding-top: 0; border-bottom-left-radius: 1.5rem; border-bottom-right-radius: 1.5rem;">
+    <!-- Your form goes here -->
+    <%= render 'questions/form' %>
   </div>
-<% end %>
+</div>
