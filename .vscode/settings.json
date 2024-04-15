@@ -69,5 +69,6 @@
   },
   "files.associations": {
     "*.html.erb": "erb"
-  }
+  },
+  "window.autoDetectColorScheme": true
 }

@@ -1,0 +1,13 @@
+<!-- app/views/questions/new.html.erb -->
+<h1>Ask a Question</h1>
+
+<%= form_with url: ask_question_path, method: :post, local: true do |form| %>
+  <div>
+    <%= form.label :question, "Your question:" %>
+    <%= form.text_area :question %>
+  </div>
+
+  <div>
+    <%= form.submit "Ask" %>
+  </div>
+<% end %>
