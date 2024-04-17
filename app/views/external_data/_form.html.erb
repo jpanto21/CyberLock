@@ -1,7 +1,7 @@
 <%= form_with(model: external_datum, html: { class: 'needs-validation', novalidate: '' }) do |form| %>
   <% if external_datum.errors.any? %>
     <div class="alert alert-danger" role="alert">
-      <h2><%= pluralize(external_datum.errors.count, "error") %> prohibited this external_datum from being saved:</h2>
+      <h2><%= pluralize(external_datum.errors.count, "error") %> prohibited this Login from being saved:</h2>
       <ul>
         <% external_datum.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -22,7 +22,7 @@
 
   <div class="form-group">
     <%= form.label :organization_id %>
-    <%= form.collection_select :organization_id, Organization.all, :id, :name, {}, { class: 'form-control' } %>
+    <%= form.collection_select :organization_id, Organization.all, :id, :name, {}, { class: 'form-control form-control2' } %>
   </div>
 
   <!-- Hidden fields don't need styling, but ensure they're logically grouped if needed -->
@@ -30,6 +30,6 @@
   <%= form.hidden_field :alerts_count, value: 0 %>
 
   <div class="form-group mt-3">
-    <%= form.submit class: 'btn btn-dark text-warning' %>
+    <%= form.submit 'Enter Login',class: 'btn btn-dark text-warning m-3' %>
   </div>
 <% end %>

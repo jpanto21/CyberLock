@@ -9,10 +9,11 @@
 </div>
 
 <!-- Navigation links styled with Bootstrap's navbar and button classes for better appearance -->
-<div class="container text-center d-flex justify-content-around">
-
+<div class="container text-center d-flex justify-content-right mb-5">
+   <div class= "ms-3">
   <%= link_to "My Emails", user_path(current_user.username), class: "btn btn-dark text-warning" %>
-  
+  </div>
+  <div class= "ms-5" >
   <%= button_to "Delete this Login", @external_datum, method: :delete ,class: "btn btn-danger text-light "%>
-
+   </div>
 </div>

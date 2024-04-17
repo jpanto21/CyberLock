@@ -1,9 +1,13 @@
-<h1>New external datum</h1>
-
+<div class="container m-5 border rounded">
+<h1 class="m-3" >New Login</h1>
+<hr>
 <%= render "form", external_datum: @external_datum %>
 
 <br>
 
-<div>
-  <%= link_to "Back to external data", external_data_path %>
+<hr>
+
+<div class="btn btn-dark m-3 text-warning">
+  <%= link_to "Back to my credentials", user_path(current_user.username), class: "nav-link" %>
+  </div>
 </div>
