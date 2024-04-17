@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :organizations
   resources :external_data
   resources :alerts 
+  resources :interactions, only: [:index, :show]
 
   # Routes for Questions:
   # Route to show the form for a new question

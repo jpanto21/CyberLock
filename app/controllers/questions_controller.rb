@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
     # This ensures that only interactions belonging to the current user can be accessed
     @interaction = current_user.interactions.find_by(id: params[:id])
     if @interaction.nil?
-      redirect_to root_path, alert: "Interaction not found."
+      redirect_to root_path, alert: "Question not found."
     end
   end
 end

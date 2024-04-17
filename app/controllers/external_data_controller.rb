@@ -26,7 +26,7 @@ class ExternalDataController < ApplicationController
 
     respond_to do |format|
       if @external_datum.save
-        format.html { redirect_to external_datum_url(@external_datum), notice: "External datum was successfully created." }
+        format.html { redirect_to user_path(current_user.username), notice: "External datum was successfully created." }
         format.json { render :show, status: :created, location: @external_datum }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class ExternalDataController < ApplicationController
   def update
     respond_to do |format|
       if @external_datum.update(external_datum_params)
-        format.html { redirect_to external_datum_url(@external_datum), notice: "External datum was successfully updated." }
+        format.html { redirect_to user_path(current_user.username), notice: "External datum was successfully updated." }
         format.json { render :show, status: :ok, location: @external_datum }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class ExternalDataController < ApplicationController
     @external_datum.destroy
 
     respond_to do |format|
-      format.html { redirect_to external_data_url, notice: "External datum was successfully destroyed." }
+      format.html { redirect_to user_path(current_user.username), notice: "External datum was successfully destroyed." }
       format.json { head :no_content }
     end
   end
