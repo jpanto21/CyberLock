@@ -6,7 +6,7 @@
 
 /* Breaches view card color  */
 .breachesbg {
-  background: #3f3f42;
+  background: #f1f1f5;
 }
 
 /* Background Image */
@@ -96,3 +96,11 @@
 }
 
 
+.w-90 {
+  width: 90% !important;
+}
+
+
+.fontpic{
+  font-size: 1em !important;
+}

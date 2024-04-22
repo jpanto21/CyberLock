@@ -1,20 +1,43 @@
 <!-- app/views/api/check_breaches.html.erb -->
-
-<div class="breachesbg py-5">
-  <div class="container">
+<div class="breachesbg py-4">
+  <div class="container ">
     <% if @breaches.present? %>
-      <h2 class="mb-4 text-light">Breaches Found:</h2>
+
+ <div class="card border-rounded border-dark rounded bg-white">
+   <div class="card-body ">
+    <div class="position-relative ">
+    <%= image_tag("breached.gif", alt: "Breached Image" ) %>
+    </div>
+    <!-- Overlay with Text and Buttons -->
+    <div class=" ms-5 overlay top-0 start-50">
+      <!-- Heading -->
+      <h1 class="heading text-danger position-sticky mb-1"> Oh No! </h1> 
+      <h3 class=" text-white position-sticky fontpic"> Your data was involved <br> in a data breach! </h3>
+      <!-- Description -->
+      <h3 class="text-white position-sticky mb-0 fontpic">Ask custos if you need help on what actions to take next!</h3>
+      
+      <!-- Buttons -->
+        <!-- Edit Profile Button -->
+        <div class="ms-2 mt-3">
+          <%= link_to "Ask Custos", new_question_path, class: "btn btn-info border-dark me-2 text-dark" %>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <h2 class="my-4"> Breaches Invovlved in: </h2>
+  <hr>
       <div class="row">
         <% @breaches.each do |breach| %>
           <div class="col-md-4 mb-4">
-            <div class="card">
+            <div class="card border border-dark">
               <div class="card-body">
                 <% if breach["LogoPath"].present? %>
-                <div class= "bg-dark d-flex justify-content-center align-items-center">
-                  <img src="<%= breach["LogoPath"] %>"  alt="<%= breach["Name"] %> icon" style="width: 4em; height: 5em;">
+                  <div class="bg-dark d-flex justify-content-center align-items-center">
+                    <img src="<%= breach["LogoPath"] %>" alt="<%= breach["Name"] %> icon" style="width: 4em; height: 5em;">
+                  </div>
+                  <hr>
                 <% end %>
-                <hr>
-                </div>
                 <h4 class="card-title text-dark"><%= breach["Title"] %></h4>
                 <p class="card-text"><%= breach["Description"].html_safe %></p>
                 <ul class="list-unstyled mt-3">
@@ -32,7 +55,12 @@
         <% end %>
       </div>
     <% else %>
-      <p class="text-white">Your email has not been found in any breaches.</p>
+      <div class="card bg-white mb-4" style="max-width: 38rem; margin: 0 auto; border: none; border-radius: 15px;">
+        <img src="<%= asset_path('breach.gif') %>" alt="breaches safe image" class="card-img-top">
+        <div class="card-body bg-dark border border-secondary text-light">
+          <h5 class="card-title mb-0 text-center">Your email is Safe!</h5>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
