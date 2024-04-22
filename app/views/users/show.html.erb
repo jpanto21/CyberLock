@@ -1,12 +1,16 @@
+
+
 <div class="container mt-4 mb-5">
-  <div class="card bg-dark bg-opacity-10 m-3">
-    <div class="card-body">
-      <h1 class="text-dark">
-        <%= @user.name %><br>
-        <small class="text-muted">CyberLock username: <%= @user.username %></small>
-      </h1>
+<div class="card border bg-dark mb-2 bg-opacity-10 ">
+    <div class="card-body rounded" style="background-image: url('<%= asset_path('weblock.gif') %>'); background-size: cover; background-position: center; position: relative;">
+        <div style="background: rgba(0); padding: 1em; border-radius: 2em;">
+            <h1 class="text-light">
+                <%= @user.name %><br>
+                <small class="text-light">username: <%= @user.username %></small>
+            </h1>
+        </div>
     </div>
-  </div>
+</div>
 
   <hr>
 
@@ -22,12 +26,12 @@
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+        <div class="accordion-body bg-dark bg-opacity-10">
           <!-- Add new Email Button -->
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-heading">
               <button class="accordion-button collapsed btn bg-dark text-light" data-bs-toggle="collapse" data-bs-target="#addEmailForm">
-                <span class="fas fa-plus m-2 text-warning"></span>
+                <span class="fas fa-plus m-2 text-info"></span>
                 Add new Login
                 <span class="order-1">
                   <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
@@ -35,25 +39,25 @@
               </button>
             </h2>
             <div id="addEmailForm" class="collapse">
-              <%= link_to "Add new Login", new_external_datum_path, class: "btn btn-dark m-3 text-warning" %>
+              <%= link_to "Add new Login", new_external_datum_path, class: "btn btn-dark m-3 text-info" %>
             </div>
           </div>
           <!-- Emails -->
           <% @user.external_data.group_by(&:ext_email).each do |email, data_group| %>
             <div class="accordion-item">
               <h2 class="accordion-header" id="heading<%= email %>">
-                <button class="accordion-button bg-dark bg-opacity-10 fw-bold text-dark text-bold d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= email %>" aria-expanded="true" aria-controls="collapse<%= email %>">
+                <button class="accordion-button bg-light fw-bold text-dark text-bold d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= email %>" aria-expanded="true" aria-controls="collapse<%= email %>">
                   <span>Email: <%= email %></span>
                 </button>
               </h2>
               <div id="collapse<%= email %>" class="accordion-collapse collapse" aria-labelledby="heading<%= email %>">
-                <div class="accordion-body">
+                <div class="accordion-body border bg-dark bg-opacity-10">
                   <% data_group.each do |external_data| %>
                     <div class="card mb-3">
                       <div class="card-body">
                         <h5 class="card-title">Username: <%= external_data.ext_username %></h5>
                         <p class="card-text">Company: <%= external_data.organization.name %></p>
-                        <%= link_to "Edit Email", edit_external_datum_path(external_data), class: "btn btn-dark text-warning" %>
+                        <%= link_to "Edit Email", edit_external_datum_path(external_data), class: "btn btn-dark text-info" %>
                       </div>
                     </div>
                   <% end %>
@@ -78,26 +82,26 @@
           </button>
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
+          <div class="accordion-body bg-dark bg-opacity-10">
             <!-- List of Organizations -->
             <% @user.organizations.each do |organization| %>
               <% unless displayed_organizations.include?(organization.id) %>
                 <% displayed_organizations << organization.id %>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOrg<%= organization.id %>">
-                    <button class="accordion-button bg-dark bg-opacity-10 fw-bold text-dark d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrg<%= organization.id %>" aria-expanded="false" aria-controls="collapseOrg<%= organization.id %>">
+                    <button class="accordion-button bg-light fw-bold text-dark d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrg<%= organization.id %>" aria-expanded="false" aria-controls="collapseOrg<%= organization.id %>">
                       <span>- <%= organization.name %></span>
                     </button>
                   </h2>
                   <div id="collapseOrg<%= organization.id %>" class="accordion-collapse collapse" aria-labelledby="headingOrg<%= organization.id %>">
-                    <div class="accordion-body">
+                    <div class="accordion-body bg-dark bg-opacity-10">
                       <% organization.external_data.each do |external_data| %>
                         <% if external_data.user_id == @user.id %>
                           <div class="card mb-3">
                             <div class="card-body">
                               <h5 class="card-title">Email: <%= external_data.ext_email %></h5>
                               <p class="card-text">Username: <%= external_data.ext_username %></p>
-                              <%= link_to "Edit Email", edit_external_datum_path(external_data), class: "btn btn-dark text-warning" %>
+                              <%= link_to "Edit Email", edit_external_datum_path(external_data), class: "btn btn-dark text-info" %>
                             </div>
                           </div>
                         <% end %>
@@ -127,7 +131,7 @@
            <div class= "container  m-4">
           <%= form_with url: check_breaches_path, method: :get, local: true, class: "d-flex align-items-center" do |form| %>
             <%= form.email_field :email, required: true, class: "form-control me-2", placeholder: "Enter your email to check for breaches:" %>
-            <%= form.submit "Check", class: "btn btn-dark text-warning" %>
+            <%= form.submit "Check", class: "btn btn-dark text-info" %>
           <% end %>
         </div>
         </div>

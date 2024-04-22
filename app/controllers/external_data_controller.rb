@@ -23,7 +23,8 @@ class ExternalDataController < ApplicationController
   def create
     @external_datum = ExternalDatum.new(external_datum_params)
     @external_datum.user_id = current_user.id
-
+    
+    
     respond_to do |format|
       if @external_datum.save
         format.html { redirect_to user_path(current_user.username), notice: "External datum was successfully created." }
