@@ -1,16 +1,16 @@
 <!-- app/views/interactions/index.html.erb -->
-<div class="container mt-4">
+<div class="container text-wrap mt-4">
   <div class="card border-dark mb-4" style=" margin: 0 auto; max-width: 80vw;">
     <div class="card-header bg-dark text-light " style="padding: 1rem; ">
-      <h1 class="card-title text-center " style="margin-bottom: 0; font-size: 2rem;">Previously Asked Questions by : <%= @user.name.titleize %></h1>
+      <h1 class="card-title text-center text-wrap " style="margin-bottom: 0; font-size: 2rem;">Previously Asked Questions by : <%= @user.name.titleize %></h1>
     </div>
-    <div class="card-body border-dark" style="background-color: white; padding: 0;">
-      <table class="table " style="margin-bottom: 0;">
+    <div class="card-body border-dark " style="background-color: white; padding: 0;">
+      <table class="table  " style="margin-bottom: 0;">
         <thead>
-          <tr class=>
-            <th scope="col" style="font-size: 1.4rem;">Questions</th>
-            <th scope="col" style="font-size: 1.4rem;">Asked On</th>
-            <th scope="col" style="font-size: 1.4rem;">Answers</th>
+          <tr>
+            <th scope="col" >Questions</th>
+            <th scope="col" >Asked On</th>
+            <th scope="col" >Answers</th>
           </tr>
         </thead>
         <tbody>
