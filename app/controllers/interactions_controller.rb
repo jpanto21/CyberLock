@@ -9,7 +9,7 @@ class InteractionsController < ApplicationController
 
   def show
     @interaction = Interaction.find(params[:id])
-    @user = current_user  # This assumes you have a method like `current_user` that Devise provides
+    @user = current_user 
   end
 
 end
