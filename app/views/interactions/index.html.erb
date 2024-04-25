@@ -2,7 +2,7 @@
 <div class="container text-wrap mt-4">
   <div class="card border-dark mb-4" style=" margin: 0 auto; max-width: 80vw;">
     <div class="card-header bg-dark text-light " style="padding: 1rem; ">
-      <h1 class="card-title text-center text-wrap " style="margin-bottom: 0; font-size: 2rem;">Previously Asked Questions by : <%= @user.name.titleize %></h1>
+      <h1 class="card-title text-center text-wrap " style="margin-bottom: 0; font-size: 2rem;">Previously Asked by : <%= @user.name.titleize %></h1>
     </div>
     <div class="card-body border-dark " style="background-color: white; padding: 0;">
       <table class="table  " style="margin-bottom: 0;">
@@ -19,7 +19,7 @@
               <td style="font-size: 1.2rem;"><%= interaction.question %></td>
               <td style="font-size: 1.2rem;"><%= interaction.created_at.strftime("%b %d, %Y") %></td>
               <td style="font-size: 1.2rem;">
-                <%= link_to 'View Details', interaction_path(interaction), class: 'btn btn-warning' %>
+                <%= link_to 'View Details', interaction_path(interaction), class: 'btn btn-info' %>
               </td>
             </tr>
           <% end %>

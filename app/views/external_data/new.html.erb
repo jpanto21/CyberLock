@@ -1,13 +1,16 @@
-<div class="container m-5 border rounded">
-<h1 class="m-3" >New Login</h1>
-<hr>
-<%= render "form", external_datum: @external_datum %>
+<div class="container  border rounded">
+  <div class="card p-4 m-4">
+  <h1 class="my-3" >New Login</h1>
+  <h5 class="mb-2" >Enter Login from external Organization/Company</h5>
+  <hr>
+   <%= render "form", external_datum: @external_datum %>
 
-<br>
+   <br>
+ 
+   <hr>
 
-<hr>
-
-<div class="btn btn-dark m-3 text-warning">
-  <%= link_to "Back to my credentials", user_path(current_user.username), class: "nav-link" %>
+    <div class="btn btn-dark m-3 text-info">
+     <%= link_to "Back to my credentials", user_path(current_user.username), class: "nav-link" %>
+    </div>
   </div>
-</div>
+ </div>
