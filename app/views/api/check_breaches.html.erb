@@ -1,32 +1,29 @@
 <!-- app/views/api/check_breaches.html.erb -->
-<div class="breachesbg py-4">
-  <div class="container ">
+<div class="breachesbg py-5">
+  <div class="container d-flex justify-content-center align-items-center">
     <% if @breaches.present? %>
-
- <div class="card border-rounded border-dark rounded bg-white">
-   <div class="card-body ">
-    <div class=>
-    <%= image_tag("breached.gif", alt: "Breached Image" ) %>
-    </div>
-    <!-- Overlay with Text and Buttons -->
-    <div class=" ms-5 overlay top-0 start-50">
-      <!-- Heading -->
-      <h1 class="heading text-danger position-sticky mb-1"> Oh No! </h1> 
-      <h3 class=" text-white position-sticky fontpic"> Your data was involved <br> in a data breach! </h3>
-      <!-- Description -->
-      <h3 class="text-white position-sticky mb-0 fontpic">Ask custos if you need help on what actions to take next!</h3>
-      
-      <!-- Buttons -->
-        <!-- Edit Profile Button -->
-        <div class="ms-2 mt-3">
-          <%= link_to "Ask Custos", new_question_path, class: "btn btn-info border-dark me-2 text-dark" %>
+      <div class=" hw-65 border-rounded border-dark rounded bg-dark">
+          <div class="card  border-rounded border-light rounded ">
+            <%= image_tag("breached.gif", alt: "Breached Image", class: " rounded h-100 w-100") %>
+            <!-- Overlay with Text and Buttons -->
+             <div class=" card-body bg-dark border-light border rounded ">
+              <!-- Heading -->
+              <h1 class=" heading text-danger card-title mb-1">Oh No!</h1>
+              <h3 class="text-light heading3 card-title ">Your data was involved in a data breach!</h3>
+              <!-- Description -->
+              <h3 class="text-light heading3 card-title  mb-0">Ask Custos if you need help on what actions to take next!</h3>
+              <!-- Buttons -->
+              <%= link_to "Ask Custos", new_question_path, class: "btn btn-primary heading3 border-light  text-light  mt-3" %>
+            </div>
+          
         </div>
-        </div>
+      </div>
     </div>
-  </div>
 
-  <h2 class="my-4"> Breaches Invovlved in: </h2>
-  <hr>
+    <h2 class="m-5">Breaches Involved in:</h2>
+
+    <div class="container">
+      <hr>
       <div class="row">
         <% @breaches.each do |breach| %>
           <div class="col-md-4 mb-4">

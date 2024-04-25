@@ -5,10 +5,11 @@
     <!-- Overlay with Text and Buttons -->
     <div class="overlay bottom-0 start-0 p-4">
       <!-- Heading -->
-      <h1 class="heading text-info  mb-3"> Stay <br>  Safe Online </h1>
+     
+      <h1 class="heading text-info  mb-2"> Stay <br>  Safe Online </h1>
       <!-- Description -->
-      <h3 class="text-secondary mb-2">A secure place to store <br> your usernames and emails.</h3>
-      <h3 class="text-secondary mb-3">Check if your email has <br> been involved in a data breach.</h3>
+      <h3 class="text-white mb-2">A secure place to store <br> your usernames and emails.</h3>
+      <h3 class="text-white mb-3">Check if your email has <br> been involved in a data breach.</h3>
       <!-- Conditional Buttons -->
       <% if user_signed_in? %> <!-- Check if user is signed in -->
         <!-- Edit Profile Button -->
@@ -27,12 +28,29 @@
       <% end %>
     </div>
   </div>
+  
 
   <!-- Second image -->
   <div class="position-relative">
-    <div class="container-fluid p-0">
-      <%= image_tag("seclog.jpg", class: "img-fluid", alt: "Logo") %>
+     <%= image_tag("homelock.jpg", class: "img-fluid", alt: "Logo") %>
+  <div class="overlay rounded mt-4 heading ms-2 start-0 p-1">
+      <!-- Heading -->
+         <img src="<%= asset_path('cyberbot.png') %>" class="hw-15 mx-4 my-2 ">
+      <h1 class="heading text-white  mb-1">Meet Custos the <br> AI Cybersecurity <br> Bot  </h1>
+      <!-- Description -->
+      <h3 class="text-info  mt-3 mb-0 ">Ask Custos a CyberSecurity Question</h3>
     </div>
   </div>
+  </div>
+
+  <!-- third image -->
+  <div class="position-relative">
+      <%= image_tag("seclog.jpg", class: "img-fluid", alt: "Logo") %>
+    <div class="overlay bottom-0 start-0 p-4">
+      <img src="<%= asset_path('homelogo.png') %>" class="hw-20 card rounded">
+    </div>
+  </div>
+  </div>
+
 
 </body>
