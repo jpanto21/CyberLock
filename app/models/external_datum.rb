@@ -32,7 +32,7 @@ class ExternalDatum < ApplicationRecord
 
   scope :grouped_by_email, -> { group(:ext_email, :id) }
 
-  validates :ext_email, uniqueness: { scope: :organization_id, message: 'Email must be unique per organization' }
+  validates :ext_email, uniqueness: { scope: :organization_id, message: 'Email must be unique per organization',case_sensitive: false }
   validates :ext_username, uniqueness: { scope: :organization_id, message: 'Username must be unique per organization' }
 
 
