@@ -13,44 +13,43 @@
 </div>
 
   <hr>
-
-  <div class="accordion" id="accordionExample">
-    <!-- Emails Section -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button bg-dark text-light d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <h3>Credentials</h3>
-          <span class="order-1">
-            <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
-          </span>
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body bg-dark bg-opacity-10">
-          <!-- Add new Email Button -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-heading">
-              <button class="accordion-button collapsed btn bg-dark text-light" data-bs-toggle="collapse" data-bs-target="#addEmailForm">
-                <span class="fas fa-plus m-2 text-info"></span>
-                Add new Login
-                <span class="order-1">
-                  <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
-                </span>
-              </button>
-            </h2>
-            <div id="addEmailForm" class="collapse">
-              <%= link_to "Add new Login", new_external_datum_path, class: "btn btn-dark m-3 text-info" %>
-            </div>
-          </div>
-          <!-- Emails -->
-          <% @user.external_data.group_by(&:ext_email).each do |email, data_group| %>
+          <div class="accordion" id="accordionExample">
+            <!-- Emails Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button bg-dark text-light d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <h3>Credentials</h3>
+                    <span class="order-1">
+                      <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
+                    </span>
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body bg-dark bg-opacity-10">
+                    <!-- Add new Email Button -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-heading">
+                        <button class="accordion-button collapsed btn bg-dark text-light" data-bs-toggle="collapse" data-bs-target="#addEmailForm">
+                          <span class="fas fa-plus m-2 text-info"></span>
+                          Add new Login
+                          <span class="order-1">
+                            <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
+                          </span>
+                        </button>
+                      </h2>
+                      <div id="addEmailForm" class="collapse">
+                        <%= link_to "Add new Login", new_external_datum_path, class: "btn btn-dark m-3 text-info" %>
+                      </div>
+                    </div>
+                    <!-- Emails -->
+                    <% @user.external_data.group_by { |data| data.ext_email.downcase }.each do |email, data_group| %>
             <div class="accordion-item">
               <h2 class="accordion-header" id="heading<%= email %>">
-                <button class="accordion-button bg-light fw-bold text-dark text-bold d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= email %>" aria-expanded="true" aria-controls="collapse<%= email %>">
-                  <span>Email: <%= email %></span>
+                <button class="accordion-button bg-light fw-bold text-dark text-bold d-flex align-items-center justify-content-between position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= email.gsub(/[^a-zA-Z0-9]/, '') %>" aria-expanded="true" aria-controls="collapse<%= email %>">
+                  <span>Email: <%= data_group.first.formatted_email %></span> <!-- Using formatted_email method -->
                 </button>
               </h2>
-              <div id="collapse<%= email %>" class="accordion-collapse collapse" aria-labelledby="heading<%= email %>">
+              <div id="collapse<%= email.gsub(/[^a-zA-Z0-9]/, '') %>" class="accordion-collapse collapse" aria-labelledby="heading<%= email %>">
                 <div class="accordion-body border bg-dark bg-opacity-10">
                   <% data_group.each do |external_data| %>
                     <div class="card mb-3">
@@ -65,6 +64,7 @@
               </div>
             </div>
           <% end %>
+
         </div>
       </div>
     </div>

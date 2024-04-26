@@ -35,5 +35,8 @@ class ExternalDatum < ApplicationRecord
   validates :ext_email, uniqueness: { scope: :organization_id, message: 'Email must be unique per organization',case_sensitive: false }
   validates :ext_username, uniqueness: { scope: :organization_id, message: 'Username must be unique per organization' }
 
-
+  def formatted_email
+    ext_email.split('@').map(&:capitalize).join('@')
+  end
+  
 end
