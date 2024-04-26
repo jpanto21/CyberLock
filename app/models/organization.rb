@@ -11,5 +11,8 @@
 class Organization < ApplicationRecord
 
   has_many :external_data
+
+  validates :name, uniqueness: { case_sensitive: false, message: "The organizationalready exists" }
+
   
 end
