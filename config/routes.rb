@@ -9,15 +9,9 @@ Rails.application.routes.draw do
   resources :organizations
   resources :external_data
   resources :alerts 
-  resources :interactions, only: [:index, :show]
+  resources :interactions 
 
-  # Routes for Questions:
-  # Route to show the form for a new question
-  get 'questions/new', to: 'questions#new', as: 'new_question'
-  # Route to handle the submission of the question
-  post 'questions/ask', to: 'questions#ask', as: 'ask_question'
-  # Route to display the answer to a question
-  get 'questions/show/:id', to: 'questions#show', as: 'show_question'
+  post 'interactions/ask', to: 'interactions#ask', as: 'ask_question'
   
   # Additional routes
   get 'check_breaches', to: 'api#check_breaches'
