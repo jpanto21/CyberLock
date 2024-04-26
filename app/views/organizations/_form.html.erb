@@ -1,3 +1,5 @@
+
+<div>
 <%= form_with(model: organization) do |form| %>
   <% if organization.errors.any? %>
     <div style="color: red">
@@ -17,11 +19,12 @@
   </div>
 
   <div>
-    <%= form.label :external_data_count, style: "display: block" %>
-    <%= form.number_field :external_data_count %>
-  </div>
 
+    <%= form.hidden_field :external_data_count %>
+  </div>
+  <hr>
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+</div>

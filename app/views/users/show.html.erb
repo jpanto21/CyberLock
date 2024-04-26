@@ -83,6 +83,21 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
           <div class="accordion-body bg-dark bg-opacity-10">
+           <!-- Add new Org Button -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-heading">
+                        <button class="accordion-button collapsed btn bg-dark text-light" data-bs-toggle="collapse" data-bs-target="#addOrgForm">
+                          <span class="fas fa-plus m-2 text-info"></span>
+                          Add new Org
+                          <span class="order-1">
+                            <img src="<%= asset_path('navlock.png') %>" alt="Lock Icon" style="width: 1.5em; height: 1.5em;">
+                          </span>
+                        </button>
+                      </h2>
+                      <div id="addOrgForm" class="collapse">
+                        <%= link_to "Add new Org", new_organization_path, class: "btn btn-dark m-3 text-info" %>
+                      </div>
+                    </div>
             <!-- List of Organizations -->
             <% @user.organizations.each do |organization| %>
               <% unless displayed_organizations.include?(organization.id) %>

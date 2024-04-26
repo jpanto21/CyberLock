@@ -4,13 +4,17 @@
   <h5 class="mb-2" >Enter Login from external Organization/Company</h5>
   <hr>
    <%= render "form", external_datum: @external_datum %>
+     <hr>
+     <div class="card p-5">
+       <h5 class="mt-2" >Dont see your Company/Organization? add it! </h5>
+  <div class="btn btn-dark m-2 text-info">
+     <%= link_to " Add new Organization",  new_organization_path, class: "nav-link" %>
+ </div>
 
-   <br>
- 
-   <hr>
-
-    <div class="btn btn-dark m-3 text-info">
+  </div>
+  <hr>
+  <div class="btn btn-dark m-3 text-info">
      <%= link_to "Back to my credentials", user_path(current_user.username), class: "nav-link" %>
     </div>
-  </div>
+
  </div>
