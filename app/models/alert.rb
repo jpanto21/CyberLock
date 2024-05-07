@@ -16,7 +16,7 @@
 #  fk_rails_...  (external_datum_id => external_data.id)
 #
 class Alert < ApplicationRecord
-
+#  Nitpick: Remove blank lines
   belongs_to :external_datum
 
 end
