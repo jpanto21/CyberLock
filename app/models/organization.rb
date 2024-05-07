@@ -9,10 +9,10 @@
 #  updated_at          :datetime         not null
 #
 class Organization < ApplicationRecord
-
+# nitpick: keep spacing consistent; remove extra blank lines
   has_many :external_data
 
   validates :name, uniqueness: { case_sensitive: false, message: "The organizationalready exists" }
 
-  
+
 end

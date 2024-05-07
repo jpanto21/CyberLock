@@ -144,3 +144,21 @@ Your contrubutions to  **CyberLock** are appreciated.
 
 ### Ruby Version Errors
 * The project is written using Ruby 3.1.1, if you encounter issues upon cloning, make sure you have Ruby version 3.1.1 in your environment.
+
+<hr>
+
+# Code Review
+
+## Documentation
+- Excellent README!
+
+## Version Control
+- Excellent use of issue tracking 
+- Excellent use of project board
+
+## Frontend
+- No notes! Great job
+
+## Backend
+- Consider adding Pundit or other authorization framework
+- Great job adding ChatGPT; very ambitious
